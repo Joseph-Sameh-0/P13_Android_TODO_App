@@ -3,4 +3,5 @@
     <!-- ListFragment -->
     <string name="ListFragment">ListFragment</string>
     <string name="todo">TODO</string>
+    <string name="add_a_todo">Add a TODO</string>
 </resources>
