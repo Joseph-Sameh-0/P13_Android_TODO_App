@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">P13_depi_Android_task</string>
-    <!-- ListFragment -->
-    <string name="ListFragment">ListFragment</string>
     <string name="todo">TODO</string>
     <string name="add_a_todo">Add a TODO</string>
+    <string name="title_">Title:</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 </resources>
