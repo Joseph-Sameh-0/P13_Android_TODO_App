@@ -60,13 +60,21 @@ class AddTodo : Fragment() {
                         arguments?.getString("description").toString()
                     )
                 )
-            }
-            myList.add(
-                TODO(
-                    title = binding.Title.text.toString(),
-                    description = binding.Description.text.toString()
+                myList.add(
+                    TODO(
+                        arguments?.getInt("id")!!,
+                        title = binding.Title.text.toString(),
+                        description = binding.Description.text.toString()
+                    )
                 )
-            )
+            } else {
+                myList.add(
+                    TODO(
+                        title = binding.Title.text.toString(),
+                        description = binding.Description.text.toString()
+                    )
+                )
+            }
             saveToSharedPreferences("TodoList", myList)
             findNavController().navigateUp()
         }
