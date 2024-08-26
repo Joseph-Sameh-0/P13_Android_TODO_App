@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
-            android:focusable="false">
+            android:focusable="false"
+            android:focusableInTouchMode="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Title"
@@ -40,7 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/titleLayout"
-            android:focusable="false">
+            android:focusable="false"
+            android:focusableInTouchMode="false">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Description"
@@ -53,17 +55,51 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/floatingActionButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="16dp"
-            android:clickable="true"
-            android:contentDescription="@string/save"
-            android:focusable="true"
-            android:src="@android:drawable/ic_menu_save" />
+            android:layout_margin="16dp">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingSaveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="@string/save"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingEditButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:contentDescription="@string/edit"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_edit"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/floatingSaveButton"
+                app:layout_constraintEnd_toEndOf="@id/floatingSaveButton" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingDeleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:contentDescription="@string/delete"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_delete"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/floatingEditButton"
+                app:layout_constraintEnd_toEndOf="@id/floatingEditButton" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </RelativeLayout>
 </layout>

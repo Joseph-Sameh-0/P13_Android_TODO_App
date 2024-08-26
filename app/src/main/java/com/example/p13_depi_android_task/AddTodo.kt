@@ -11,6 +11,8 @@ import android.graphics.Rect
 import android.view.ViewTreeObserver
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import androidx.navigation.fragment.findNavController
 import com.example.p13_depi_android_task.databinding.FragmentAddTodoBinding
 import com.example.p13_depi_android_task.databinding.FragmentListBinding
@@ -33,7 +35,7 @@ class AddTodo : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val rootLayout = view.findViewById<RelativeLayout>(R.id.root_layout)
-        val fab = view.findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        val fab = view.findViewById<ConstraintLayout>(R.id.floatingActionButtons)
 
         rootLayout.viewTreeObserver.addOnGlobalLayoutListener {
             val r = Rect()
@@ -50,7 +52,7 @@ class AddTodo : Fragment() {
             }
         }
 
-        binding.floatingActionButton.setOnClickListener {
+        binding.floatingSaveButton.setOnClickListener {
             val myList: MutableList<TODO> = getFromSharedPreferences("TodoList")
             if (arguments?.getInt("id") != null) {
                 myList.remove(
@@ -85,6 +87,21 @@ class AddTodo : Fragment() {
                 arguments?.getString("title").toString(),
                 arguments?.getString("description").toString()
             )
+            binding.floatingEditButton.visibility = View.VISIBLE
+            binding.floatingDeleteButton.visibility = View.VISIBLE
+            binding.Title.isEnabled = false
+            binding.Description.isEnabled = false
+        }
+        binding.floatingEditButton.setOnClickListener() {
+            binding.Title.isEnabled = true
+            binding.Description.isEnabled = true
+            binding.floatingEditButton.visibility = View.GONE
+        }
+        binding.floatingDeleteButton.setOnClickListener() {
+            val myList: MutableList<TODO> = getFromSharedPreferences("TodoList")
+            myList.remove(binding.todo)
+            saveToSharedPreferences("TodoList", myList)
+            findNavController().navigateUp()
         }
     }
 
