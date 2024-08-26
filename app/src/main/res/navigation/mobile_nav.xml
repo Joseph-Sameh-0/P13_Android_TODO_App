@@ -9,12 +9,12 @@
         android:id="@+id/listFragment"
         android:name="com.example.p13_depi_android_task.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_fromListToAdd"
             app:destination="@id/addTodo"
-            app:popUpTo="@id/listFragment"
-            app:launchSingleTop="true" />
+            app:launchSingleTop="true"
+            app:popUpTo="@id/listFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTodo"
