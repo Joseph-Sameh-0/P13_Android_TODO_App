@@ -41,3 +41,4 @@ class TODOAdapter(
         diffResult.dispatchUpdatesTo(this)
     }
 }
+
