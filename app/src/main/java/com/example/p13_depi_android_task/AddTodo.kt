@@ -34,7 +34,7 @@ class AddTodo : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rootLayout = view.findViewById<RelativeLayout>(R.id.root_layout)
+        val rootLayout = view.findViewById<ConstraintLayout>(R.id.root_layout)
         val fab = view.findViewById<ConstraintLayout>(R.id.floatingActionButtons)
 
         rootLayout.viewTreeObserver.addOnGlobalLayoutListener {
