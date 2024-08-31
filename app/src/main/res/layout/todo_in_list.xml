@@ -26,19 +26,20 @@
             android:layout_height="wrap_content"
             android:padding="20dp">
 
-
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{todo.title}"
                 android:textSize="18sp"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:maxLines="1"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/delete"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Title Title Title Titl Title Titl"
-
-                />
+                tools:text="Title Title Title Title Title Title Title Title Title Title Title Title" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/delete"
@@ -54,4 +55,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
 </layout>
