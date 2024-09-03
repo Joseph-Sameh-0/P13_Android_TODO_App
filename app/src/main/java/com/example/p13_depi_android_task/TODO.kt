@@ -6,7 +6,7 @@ data class TODO(
     val description: String
 ){
     companion object {
-        private var currentId: Int = 0
+        public var currentId: Int = 0
 
         private fun generateId(): Int {
             return ++currentId

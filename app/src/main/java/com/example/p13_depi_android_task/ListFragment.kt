@@ -70,13 +70,19 @@ class ListFragment : Fragment() {
             requireContext().getSharedPreferences("MySharedPrefs", Context.MODE_PRIVATE)
         val jsonString = sharedPreferences.getString(key, null)
 
-        return if (jsonString != null) {
+        val todoList: MutableList<TODO> = if (jsonString != null) {
             val gson = Gson()
             val type = object : TypeToken<MutableList<TODO>>() {}.type
             gson.fromJson<MutableList<TODO>>(jsonString, type)
         } else {
             mutableListOf()
         }
+        TODO.currentId = if (todoList.isNotEmpty()) {
+            todoList.maxOf { it.id }
+        } else {
+            0
+        }
+        return todoList
     }
 
 }
