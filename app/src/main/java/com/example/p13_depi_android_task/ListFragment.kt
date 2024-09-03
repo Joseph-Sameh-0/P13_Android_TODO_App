@@ -46,6 +46,7 @@ class ListFragment : Fragment() {
             todoAdapter.setTODOList(myList)
             saveToSharedPreferences("TodoList", myList)
         })
+        myList.sortBy { it.id }
         todoAdapter.setTODOList(myList)
         binding.MyList.adapter = todoAdapter
 
