@@ -1,4 +1,4 @@
-package com.example.p13_depi_android_task
+package com.example.p13_depi_android_task.ui
 
 data class TODO(
     val id: Int = generateId(),

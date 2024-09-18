@@ -1,6 +1,7 @@
-package com.example.p13_depi_android_task
+package com.example.p13_depi_android_task.core
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.p13_depi_android_task.ui.TODO
 
 class MyDiffUtil(
     val oldList: List<TODO>,

@@ -1,9 +1,8 @@
-package com.example.p13_depi_android_task
+package com.example.p13_depi_android_task.ui
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,8 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.p13_depi_android_task.R
+import com.example.p13_depi_android_task.core.TODOAdapter
 import com.example.p13_depi_android_task.databinding.FragmentListBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken

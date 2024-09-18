@@ -1,4 +1,4 @@
-package com.example.p13_depi_android_task
+package com.example.p13_depi_android_task.ui
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -8,15 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.graphics.Rect
-import android.view.ViewTreeObserver
-import android.widget.RelativeLayout
-import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import androidx.navigation.fragment.findNavController
+import com.example.p13_depi_android_task.R
 import com.example.p13_depi_android_task.databinding.FragmentAddTodoBinding
-import com.example.p13_depi_android_task.databinding.FragmentListBinding
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

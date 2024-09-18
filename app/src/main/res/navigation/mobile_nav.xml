@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.p13_depi_android_task.ListFragment"
+        android:name="com.example.p13_depi_android_task.ui.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/addTodo"
-        android:name="com.example.p13_depi_android_task.AddTodo"
+        android:name="com.example.p13_depi_android_task.ui.AddTodo"
         android:label="fragment_add_todo"
         tools:layout="@layout/fragment_add_todo" />
 </navigation>
