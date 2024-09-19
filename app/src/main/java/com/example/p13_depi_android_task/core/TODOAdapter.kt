@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.p13_depi_android_task.databinding.TodoInListBinding
-import com.example.p13_depi_android_task.ui.TODO
 
 
 class TODOAdapter(

@@ -9,7 +9,7 @@
 
         <variable
             name="todo"
-            type="com.example.p13_depi_android_task.ui.TODO" />
+            type="com.example.p13_depi_android_task.core.TODO" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
