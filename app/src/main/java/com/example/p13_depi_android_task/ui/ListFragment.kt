@@ -1,32 +1,30 @@
 package com.example.p13_depi_android_task.ui
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.p13_depi_android_task.R
 import com.example.p13_depi_android_task.core.TODOAdapter
+import com.example.p13_depi_android_task.core.TODODatabase
 import com.example.p13_depi_android_task.databinding.FragmentListBinding
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class ListFragment : Fragment() {
     private lateinit var binding: FragmentListBinding
-    var myList: MutableList<TODO> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding = FragmentListBinding.inflate(inflater, container, false)
-        myList = getFromSharedPreferences("TodoList")
         return binding.root
     }
 
@@ -36,56 +34,32 @@ class ListFragment : Fragment() {
         binding.MyList.layoutManager = LinearLayoutManager(requireContext())
         lateinit var todoAdapter: TODOAdapter
 
-        todoAdapter = TODOAdapter(onItemClick = {
-            findNavController().navigate(
-                R.id.addTodo, bundleOf(
-                    "id" to it.id, "title" to it.title, "description" to it.description
+        val todoDatabase: TODODatabase by lazy { TODODatabase.getDatabase(requireActivity().application) }
+        lifecycleScope.launch {
+            val myList = withContext(Dispatchers.IO) {
+                todoDatabase.todoDao().getAllTodo()
+            }
+
+            todoAdapter = TODOAdapter(onItemClick = {
+                findNavController().navigate(
+                    R.id.addTodo, bundleOf(
+                        "id" to it.id, "title" to it.title, "description" to it.description
+                    )
                 )
-            )
-        }, onItemDelete = {
-            myList.remove(it)
+            }, onItemDelete = { todo ->
+                myList.remove(todo)
+                todoAdapter.setTODOList(myList)
+                lifecycleScope.launch {
+                    todoDatabase.todoDao().deleteTodo(todo)
+                }
+            })
             todoAdapter.setTODOList(myList)
-            saveToSharedPreferences("TodoList", myList)
-        })
-        myList.sortBy { it.id }
-        todoAdapter.setTODOList(myList)
-        binding.MyList.adapter = todoAdapter
+            binding.MyList.adapter = todoAdapter
+        }
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_fromListToAdd)
         }
     }
-
-    private fun saveToSharedPreferences(key: String, list: MutableList<TODO>) {
-        val gson = Gson()
-        val jsonString = gson.toJson(list)
-
-        val sharedPreferences: SharedPreferences =
-            requireContext().getSharedPreferences("MySharedPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString(key, jsonString)
-        editor.apply()
-    }
-
-    private fun getFromSharedPreferences(key: String): MutableList<TODO> {
-        val sharedPreferences: SharedPreferences =
-            requireContext().getSharedPreferences("MySharedPrefs", Context.MODE_PRIVATE)
-        val jsonString = sharedPreferences.getString(key, null)
-
-        val todoList: MutableList<TODO> = if (jsonString != null) {
-            val gson = Gson()
-            val type = object : TypeToken<MutableList<TODO>>() {}.type
-            gson.fromJson<MutableList<TODO>>(jsonString, type)
-        } else {
-            mutableListOf()
-        }
-        TODO.currentId = if (todoList.isNotEmpty()) {
-            todoList.maxOf { it.id }
-        } else {
-            0
-        }
-        return todoList
-    }
-
 }
 
