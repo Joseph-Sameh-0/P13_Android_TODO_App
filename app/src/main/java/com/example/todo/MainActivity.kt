@@ -1,4 +1,4 @@
-package com.example.p13_depi_android_task
+package com.example.todo
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

@@ -7,7 +7,7 @@
 
         <variable
             name="todo"
-            type="com.example.p13_depi_android_task.core.TODO" />
+            type="com.example.todo.core.TODO" />
 
     </data>
 

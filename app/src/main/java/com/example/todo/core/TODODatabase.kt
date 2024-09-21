@@ -1,11 +1,9 @@
-package com.example.p13_depi_android_task.core
+package com.example.todo.core
 
 import android.content.Context
-import androidx.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 
 @Database(entities = [TODO::class], version = 1)
 abstract class TODODatabase:RoomDatabase() {

@@ -1,4 +1,4 @@
-package com.example.p13_depi_android_task.ui
+package com.example.todo.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.p13_depi_android_task.R
-import com.example.p13_depi_android_task.core.TODOAdapter
-import com.example.p13_depi_android_task.core.TODODatabase
-import com.example.p13_depi_android_task.databinding.FragmentListBinding
+import com.example.todo.R
+import com.example.todo.core.TODOAdapter
+import com.example.todo.core.TODODatabase
+import com.example.todo.databinding.FragmentListBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

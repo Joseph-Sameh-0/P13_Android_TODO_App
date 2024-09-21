@@ -1,4 +1,4 @@
-package com.example.p13_depi_android_task.ui
+package com.example.todo.ui
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -9,10 +9,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.example.p13_depi_android_task.R
-import com.example.p13_depi_android_task.core.TODO
-import com.example.p13_depi_android_task.core.TODODatabase
-import com.example.p13_depi_android_task.databinding.FragmentAddTodoBinding
+import com.example.todo.R
+import com.example.todo.core.TODO
+import com.example.todo.core.TODODatabase
+import com.example.todo.databinding.FragmentAddTodoBinding
 import kotlinx.coroutines.launch
 
 class AddTodo : Fragment() {

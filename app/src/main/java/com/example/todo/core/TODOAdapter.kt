@@ -1,10 +1,10 @@
-package com.example.p13_depi_android_task.core
+package com.example.todo.core
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.p13_depi_android_task.databinding.TodoInListBinding
+import com.example.todo.databinding.TodoInListBinding
 
 
 class TODOAdapter(

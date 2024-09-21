@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "P13_depi_Android_task"
+rootProject.name = "TODO"
 include(":app")
  

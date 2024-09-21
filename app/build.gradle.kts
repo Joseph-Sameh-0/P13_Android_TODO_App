@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.p13_depi_android_task"
+    namespace = "com.example.todo"
     compileSdk = 34
 
     buildFeatures {
@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.p13_depi_android_task"
+        applicationId = "com.example.todo"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.example.p13_depi_android_task.core
+package com.example.todo.core
 
 import androidx.room.Dao
 import androidx.room.Delete
